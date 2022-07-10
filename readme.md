@@ -12,15 +12,15 @@ The Imagemagick command used was taken from https://drkrishi.com/creating-photo-
 
 `brdr filename` creates
 
-![](border only.jpg)
+<p align="center"><img src="border only.jpg?raw=true"></p>
 
 `brdr filename "some text that appears on the right"` creates
 
-![](text on the right.jpg)
+<p align="center"><img src="text on the right.jpg?raw=true"></p>
 
 `brdr filename "some text on the left" "some text on the right"` creates
 
-![](text left and right.jpg)
+<p align="center"><img src="text left and right.jpg?raw=true"></p>
 
 ## Installation and Dependancies
 
