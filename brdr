@@ -1,0 +1,40 @@
+#!/bin/bash
+########## Config ##########
+font1='Chalkduster'
+font2='Chalkduster'
+color='#444444'
+quality=67
+size=1200
+############################
+
+file=$1
+fileNoExt=${file%.*}
+
+if [ $# -eq 1 ]; then
+  left=''
+  right=''
+  footspace=10
+elif [ $# -eq 2 ]; then
+  footspace=50
+  left=''
+  right=$2
+elif [ $# -eq 3 ]; then
+  footspace=50
+  left=$2
+  right=$3
+else
+  echo "Dang! Bad number of parameters!"
+fi
+
+convert "${1}" \
+-bordercolor black -border 1 \
+-bordercolor white -border 1 \
+\( +clone -background black -shadow 70x9+10+10 \) \
++swap -background white -layers merge \
+-gravity northwest -splice 30x30 -gravity southeast -splice 10x$footspace \
+-font $font1 -pointsize 30 -fill $color -gravity southwest -annotate +30+8 "${left}" \
+-font $font2 -pointsize 30 -fill $color -gravity southeast -annotate +30+8 "${right}" \
++repage \
+-quality $quality \
+-resize $size\> \
+"${fileNoExt}"_border.jpg
