@@ -26,7 +26,7 @@ else
   echo "Dang! Bad number of parameters!"
 fi
 
-convert "${1}" \
+magick "${1}" \
 -bordercolor black -border 1 \
 -bordercolor white -border 1 \
 \( +clone -background black -shadow 70x9+10+10 \) \
